@@ -1,0 +1,55 @@
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Tracker</title>
+    
+    <!-- Favicon (Website Icon) -->
+    <link rel="icon" type="image/png" href="icon.png">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <div class="container">
+        <h2>Finance Tracker</h2>
+
+        <!-- Budget Input -->
+        <h3>Set Daily Budget: ₹<input type="number" id="set-budget" placeholder="Enter Budget"></h3>
+        <button id="save-budget">Save Budget</button>
+
+        <!-- Budget Display -->
+        <h3>Daily Budget: ₹<span id="daily-budget">0</span></h3>
+        <h3>Remaining: ₹<span id="remaining">0</span></h3>
+
+        <!-- Expense Form -->
+        <form id="expense-form">
+            <input type="number" id="amount" placeholder="Enter Amount" required>
+            <input type="file" id="bill">
+            <button type="submit">Add Expense</button>
+        </form>
+
+        <!-- Expenses List -->
+        <h3>Expenses:</h3>
+        <ul id="expense-list"></ul>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("service-worker.js")
+                .then(() => {
+                    console.log("✅ Service Worker Registered Successfully!");
+                })
+                .catch((error) => {
+                    console.error("❌ Service Worker Registration Failed:", error);
+                });
+        }
+    </script>
+
+</body>
+</html>
